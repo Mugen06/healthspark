@@ -1,0 +1,143 @@
+/* Responsive styles */
+
+/* Default (Mobile) */
+.app-container {
+  flex-direction: column;
+}
+
+.main-content {
+  width: 100%;
+}
+
+.sidebar {
+  width: 80%;
+  transform: translateX(-100%);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar.open + .main-content {
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .app-container {
+    flex-direction: row;
+  }
+  
+  .sidebar {
+    position: fixed;
+    width: var(--sidebar-width);
+    transform: translateX(-100%);
+    left: 0;
+    transition: transform var(--transition-speed);
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .sidebar.open + .main-content {
+    filter: none;
+    pointer-events: auto;
+  }
+  
+  .main-content {
+    width: var(--chat-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    transition: transform var(--transition-speed);
+  }
+  
+  .main-content.sidebar-visible {
+    transform: translateX(calc(var(--sidebar-width) / 2));
+  }
+  
+  .sidebar-open {
+    display: block;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .main-content {
+    width: var(--chat-width);
+  }
+}
+
+/* iPhone specific */
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
+       only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
+       only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3),
+       only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3),
+       only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
+  
+  /* Ensure proper height with the notch */
+  .app-container {
+    height: 100vh;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .input-container {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+  
+  .app-header {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+}
+
+/* iPads (portrait) */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .main-content {
+    width: 80%;
+  }
+  
+  .sidebar {
+    width: 40%;
+  }
+  
+  .sidebar.open + .main-content {
+    margin-left: 40%;
+  }
+}
+
+/* Landscape phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .app-header {
+    height: 50px;
+    padding: 0.5rem;
+  }
+  
+  .app-header h1 {
+    font-size: 1.2rem;
+  }
+  
+  .input-container {
+    padding: 0.5rem;
+  }
+  
+  .chat-container {
+    padding: 0.5rem;
+  }
+}
+
+/* Different screen heights */
+@media (max-height: 640px) {
+  .welcome-message {
+    padding: 1rem;
+  }
+  
+  .welcome-message h2 {
+    font-size: 1.2rem;
+  }
+  
+  .welcome-message p {
+    font-size: 1rem;
+  }
+}
