@@ -229,3 +229,9 @@ textarea:focus {
     overflow-y: auto;
   }
 }
+
+@media (max-width: 767px) {
+  .input-container {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+}
