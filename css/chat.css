@@ -161,3 +161,10 @@
     margin: 0 auto;
   }
 }
+
+@media (max-width: 767px) {
+  #chat-container {
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+}
