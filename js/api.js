@@ -3,7 +3,7 @@
  */
 const API = {
   // API endpoint - ensure HTTPS
-  endpoint: 'https://n8n.mathieuchaouche.eu:5678/webhook/10152199-main',
+  endpoint: 'https://mathune.app.n8n.cloud/webhook/10152199-904f-4807-8a0a-9e38c4a14cb2',
   
   // Authorization token
   token: 'RAGSANTE123456',
